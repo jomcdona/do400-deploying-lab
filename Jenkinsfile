@@ -40,5 +40,15 @@ pipeline {
               }
           }
 
+          stage("Deploy to Prod") {
+             when { branch "main" }
+
+             steps {
+                sh '''
+                    oc rollout latest dc/home-automation -n jomcdona-deploying-lab-prod
+                '''
+             }
+          }
+
       }
 }
