@@ -4,7 +4,7 @@ pipeline {
             label "maven"
          }
       }
-      enviornment { QUAY = credentials('QUAY_USER') }
+      environment { QUAY = credentials('QUAY_USER') }
  
       stages {
           stage("Test") {
