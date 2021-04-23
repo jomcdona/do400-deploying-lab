@@ -29,6 +29,16 @@ pipeline {
                  '''
              }
           }
+         
+          stage("Deploy To Test) {
+             when { not { branch "main" } }
+
+             steps {
+                sh '''
+                     oc rollout latest dc/home-automation -n jomcdona-deploying-lab-test
+                '''
+              }
+          }
 
       }
 }
