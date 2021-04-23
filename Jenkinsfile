@@ -1,11 +1,15 @@
 pipeline {
       agent {
-         label "maven"
+         node {
+            label "maven"
+         }
       }
  
       stages {
           stage("Test") {
-              sh "./mvnw verify"
+             steps {
+                 sh "./mvnw verify"
+             }
           }
       }
 }
